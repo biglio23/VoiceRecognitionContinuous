@@ -20,7 +20,6 @@ public class RecoService extends Service {
         super.onCreate();
         App.incomingHandler = new IncomingHandler(this);
         App.serverMessenger = new Messenger(App.incomingHandler);
-        AudioUtils.mute();
         this.speechRecognizer = SpeechRecognizer.createSpeechRecognizer(this);
         this.speechRecognizer.setRecognitionListener(new SpeechRecognitionListener());
         this.speechRecognizerIntent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);

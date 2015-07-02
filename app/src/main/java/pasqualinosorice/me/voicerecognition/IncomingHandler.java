@@ -17,15 +17,17 @@ public class IncomingHandler extends Handler {
         this.isListening = false;
     }
 
-    public void handleMessage(Message message) {
+    public synchronized void handleMessage(Message message) {
         RecoService target = this.mtarget.get();
         switch (message.what) {
             case MSG_RECOGNIZER_START_LISTENING:
                 if (!isListening) {
+                    //AudioUtils.mute();
                     target.speechRecognizer.startListening(target.speechRecognizerIntent);
                     isListening = true;
                     Log.d("LINO", "message start listening");
                 } else {
+                    target.speechRecognizer.startListening(target.speechRecognizerIntent);
                     Log.d("LINO", "message dropped");
                 }
                 break;

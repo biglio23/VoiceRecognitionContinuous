@@ -4,7 +4,7 @@ import java.util.List;
 
 public class RecognitionUtils {
 
-    public static final String HOTWORD_END = "Esegui";
+    public static final String HOTWORD_END = "fatto";
     public static final String HOTWORD_START = "Ciao telefono";
 
     public static boolean isEndHotWord(List<String> strings) {

@@ -87,6 +87,7 @@ public class SpeechRecognitionListener implements RecognitionListener {
                 MessageUtils.sendStartMessage();
             }
         } else if (App.listeningCommand) {
+            App.command = App.command + " " + matches.get(0);
             sendCommand();
         }
     }
